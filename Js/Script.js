@@ -2,7 +2,7 @@
 const productList = document.querySelector('#productList');
 const priceTotal = document.querySelector('#priceTotal');
 const studentBarcodes = async () => {
-  const studentBarcodeList = await fetch('../Json/barcodes.json');
+  const studentBarcodeList = await fetch('/Json/barcodes.json');
   const studentBarcodedata = await studentBarcodeList.json();
   return studentBarcodedata;
 };
