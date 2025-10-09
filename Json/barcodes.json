@@ -5,16 +5,16 @@
       "Name" : "Ruffles® Potato Chips Variety Pack - 18 ct / 1 oz",
       "Barcode": "028400777322",
       "AssetName": "RufflesVar.png",
-      "Price" : "",
-      "DiscountPrice": ""
+      "Price" : 12.99,
+      "DiscountPrice": 7.99
     },
     "044000078362" : {
       "type" : "Product",
       "Name" : "Nutter Butter, Oreo, Chips Ahoy! Nabisco Sweet Variety Pack - 16.36oz/10ct",
       "Barcode" : "044000078362",
       "AssetName" : "NabiscoCookieVar.png",
-      "Price" : "",
-      "DiscountPrice" : ""
+      "Price" : 5.99,
+      "DiscountPrice" : 3.76
     }
   }
 ]

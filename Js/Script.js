@@ -1,6 +1,7 @@
 // Variables
 const productList = document.querySelector('#productList');
 const priceTotal = document.querySelector('#priceTotal');
+const barcodeEntry = document.querySelector('#barcodeEntry');
 const studentBarcodes = async () => {
   const studentBarcodeList = await fetch('Json/barcodes.json');
   const studentBarcodedata = await studentBarcodeList.json();
@@ -26,7 +27,7 @@ const orFullCards = async () => {
 window.onload = async (event) => {
   try {
 
-    const data = await orFullCards(); // await the async function
+   // await the async function
     console.log(data);
 //     Object.keys(data).forEach((key) => {
 //   console.log(key);
@@ -869,3 +870,9 @@ window.onload = async (event) => {
   const data = await studentBarcodes(); // await the async function
   console.log(data);
 };
+
+search.addEventListener('change', async (event) => {
+    const data = await studentBarcodes();
+    console.log(data. + barcodeEntry.value);
+
+})
