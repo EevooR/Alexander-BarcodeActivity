@@ -15,6 +15,22 @@
       "AssetName" : "NabiscoCookieVar.png",
       "Price" : 5.99,
       "DiscountPrice" : 3.76
+    },
+    "038000138430" : {
+      "type" : "Product",
+      "Name" : "Pringles Sour Cream & Onion Potato Crisps Chips - 5.5oz",
+      "Barcode" : "038000138430",
+      "AssetName" : "PringlesSCaO.png",
+      "Price" : 7.99,
+      "DiscountPrice" : 4.50
+    },
+    "786162150004" : {
+      "type" : "Product",
+      "Name" : "vitaminwater xxx açai- blueberry-pomegranate - 20 fl oz Bottle",
+      "Barcode" : "786162150004",
+      "AssetName" : "VitaminwaterXxx.png",
+      "Price" : 2.99,
+      "DiscountPrice" : 0.99
     }
   }
 ]

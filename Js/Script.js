@@ -3,11 +3,12 @@ const productList = document.querySelector('#productList');
 const priceTotal = document.querySelector('#priceTotal');
 const barcodeEntry = document.querySelector('#barcodeEntry');
 const studentBarcodes = async () => {
-  const studentBarcodeList = await fetch('Json/barcodes.json');
+  // const studentBarcodeList = await fetch('Json/barcodes.json');
+  const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
   const studentBarcodedata = await studentBarcodeList.json();
   return studentBarcodedata;
 };
-
+let runningtotal = 0.00;
 
 
 
@@ -871,8 +872,34 @@ window.onload = async (event) => {
   console.log(data);
 };
 
-search.addEventListener('change', async (event) => {
+barcodeEntry.addEventListener('change', async (event) => {
     const data = await studentBarcodes();
-    console.log(data. + barcodeEntry.value);
+    const barcodesdata = data[0];
+    const scanbar = barcodeEntry.value.trim();
+    console.log(barcodesdata[scanbar]);
+    runningtotal = runningtotal + barcodesdata[scanbar].Price;
+    priceTotal.innerHTML = "Running Total: $" + runningtotal;
+    barcodeEntry.value = "";
 
+    const newPurchase = document.createElement('div');
+    newPurchase.classList.add('product');
+
+    const nPimage = document.createElement('img');
+    const nPname = document.createElement('p');
+    const nPcost = document.createElement('p');
+
+    nPimage.classList.add('productImg');
+    nPimage.alt = barcodesdata[scanbar].Name;
+    nPimage.src = "Assets/" +  barcodesdata[scanbar].AssetName;
+    newPurchase.appendChild(nPimage)
+
+    nPname.classList.add('productName');
+    nPname.innerHTML = barcodesdata[scanbar].Name;
+    newPurchase.appendChild(nPname);
+
+    nPcost.classList.add('productCost');
+    nPcost.innerHTML = "$" + barcodesdata[scanbar].Price;
+    newPurchase.appendChild(nPcost);
+
+    productList.appendChild(newPurchase);
 })
