@@ -2,6 +2,9 @@
 const productList = document.querySelector('#productList');
 const priceTotal = document.querySelector('#priceTotal');
 const barcodeEntry = document.querySelector('#barcodeEntry');
+const corectCost = document.querySelector('#corect_Cost');
+const savings = document.querySelector('#Savings');
+const yousaved = document.querySelector('#yousaved')
 const studentBarcodes = async () => {
   // const studentBarcodeList = await fetch('Json/barcodes.json');
   const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
@@ -9,8 +12,35 @@ const studentBarcodes = async () => {
   return studentBarcodedata;
 };
 let runningtotal = 0.00;
+let trueTotal = 0.00;
+let errorMax = 3;
+let errorCount = 0;
+let errorRateMax = 10;
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
+// ChatGPT Array
+
+const fallbackPrices = [
+  1.29, 3.49, 0.99, 2.19, 4.79, 1.89, 7.99, 5.49, 2.99, 6.29,
+  3.19, 8.49, 9.99, 1.79, 12.99, 2.59, 10.49, 4.59, 14.99, 0.89,
+  3.99, 2.39, 11.29, 1.49, 6.79, 5.19, 7.39, 1.19, 9.59, 3.79,
+  4.09, 0.79, 8.19, 2.79, 15.49, 6.49, 7.29, 5.89, 13.99, 2.49,
+  4.29, 10.99, 3.39, 1.99, 8.79, 6.09, 9.29, 3.69, 2.89, 4.99,
+  7.19, 12.49, 0.99, 5.09, 6.39, 1.69, 11.99, 2.19, 8.29, 7.59,
+  3.89, 4.49, 9.19, 2.69, 14.29, 10.19, 1.59, 6.89, 4.69, 8.99,
+  3.29, 5.79, 13.49, 1.39, 7.09, 6.19, 9.89, 5.39, 15.99, 2.09,
+  12.79, 4.39, 3.59, 11.49, 0.89, 8.59, 5.69, 14.49, 1.99, 2.39,
+  7.49, 9.39, 4.19, 3.49, 6.59, 10.29, 12.19, 1.09, 7.89, 24.99,
+  25.49, 26.19, 26.99, 27.59, 27.99, 28.49, 28.79, 29.19, 29.59, 29.99,
+  30.49, 30.99, 31.29, 31.79, 32.39, 32.89, 33.19, 33.69, 33.99, 34.49,
+  34.99, 35.39, 35.79, 36.29, 36.89, 37.49, 37.99, 38.39, 38.89, 39.49,
+  39.99, 40.49, 41.29, 41.79, 42.19, 42.99, 43.49, 44.19, 44.79, 45.29,
+  45.99, 46.39, 47.29, 48.19, 49.99, 52.49, 55.99, 59.49, 64.99, 68.79,
+  69.49, 72.99, 74.29, 76.39, 78.49, 79.99
+];
 
 
 /*
@@ -877,7 +907,56 @@ barcodeEntry.addEventListener('change', async (event) => {
     const barcodesdata = data[0];
     const scanbar = barcodeEntry.value.trim();
     console.log(barcodesdata[scanbar]);
-    runningtotal = runningtotal + barcodesdata[scanbar].Price;
+    // runningtotal = runningtotal + barcodesdata[scanbar].Price;
+    let errorcalc;
+    if (errorCount < errorMax) {
+      errorcalc = getRandomInt(errorRateMax);
+    } else {
+      errorcalc = 0
+      console.log('Max errors reached.')
+    }
+    // if (errorcalc == 1) {
+    //   console.log('Error Intended price failure');
+    //   errorCount = errorCount + 1;
+    //   let fallbackcalc = getRandomInt(150);
+    //   runningtotal = Math.round((runningtotal + fallbackPrices[fallbackcalc]) * 100) / 100;
+    //   trueTotal = Math.round((trueTotal + barcodesdata[scanbar].Price) * 100) / 100;
+    //
+    // } else {
+    //   runningtotal = Math.round((runningtotal + barcodesdata[scanbar].Price) * 100) / 100;
+    //   trueTotal = Math.round((trueTotal + barcodesdata[scanbar].Price) * 100) / 100;
+    // }
+      if (errorcalc == 1) {
+        console.log('Error Intended price failure');
+        errorCount = errorCount + 1;
+        let fallbackcalc = getRandomInt(150);
+
+        // Calculate and round the price to be added from fallbackPrices
+        let fallbackPrice = fallbackPrices[fallbackcalc];
+        console.log(fallbackPrice);
+        // Update runningtotal and round *after* addition
+        runningtotal = runningtotal + fallbackPrice;
+        runningtotal = Math.round(runningtotal * 100) / 100;
+
+        // Calculate and round the price to be added from true price
+        let truePrice = barcodesdata[scanbar].Price;
+
+        // Update trueTotal and round *after* addition
+        trueTotal = trueTotal + truePrice;
+        trueTotal = Math.round(trueTotal * 100) / 100;
+
+      } else {
+        // Calculate the price to be added
+        let priceToAdd = barcodesdata[scanbar].Price;
+
+        // Update runningtotal and round *after* addition
+        runningtotal = runningtotal + priceToAdd;
+        runningtotal = Math.round(runningtotal * 100) / 100;
+
+        // Update trueTotal and round *after* addition
+        trueTotal = trueTotal + priceToAdd;
+        trueTotal = Math.round(trueTotal * 100) / 100;
+      }
     priceTotal.innerHTML = "Running Total: $" + runningtotal;
     barcodeEntry.value = "";
 
@@ -902,4 +981,21 @@ barcodeEntry.addEventListener('change', async (event) => {
     newPurchase.appendChild(nPcost);
 
     productList.appendChild(newPurchase);
-})
+});
+
+
+//
+// corectCost.addEventListener('change', async (event) => {
+//   corectCost.value =
+// }
+
+
+function querySubmit() {
+  if (corectCost.value == trueTotal) {
+    savings.style.display = "block";
+    let savingscalc = runningtotal - trueTotal;
+    yousaved.innerHTML = "You saved $" + savingscalc + "!";
+  } else {
+    alert('Something Is not right with your calculations or formating! Rememeber just put the price without the "$", use "." instead of ",", and make sure there are no spaces!')
+  }
+};
