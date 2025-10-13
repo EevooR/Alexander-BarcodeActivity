@@ -1,10 +1,14 @@
+* {
+    transition: 2s ease-in-out;
+}
+
 body {
   background: darkgray;
   display: flex;
 }
 
 body * {
-  background: lavender;
+  /* background: lavender; */
   border-radius: 10px;
   margin: 1em;
 }
@@ -28,7 +32,7 @@ body * {
   width: 95%;
   height: 10%;
   display: flex;
-  background: blue;
+  /* background: blue; */
 }
 
 #barcodeEntry {

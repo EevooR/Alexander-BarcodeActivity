@@ -1,0 +1,15 @@
+body {
+  background: darkgray;
+}
+
+#productDisplay {
+  background: lavender;
+}
+
+.product {
+  background: white;
+}
+
+#Payment {
+  background: lavender;
+}

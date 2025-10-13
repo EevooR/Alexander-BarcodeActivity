@@ -1,4 +1,14 @@
 /*
+Photo by <a href="https://unsplash.com/@drewwalkerphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Drew Walker</a> on <a href="https://unsplash.com/photos/a-lush-green-hillside-with-a-dirt-road-going-through-it-3F5Hu6y5IUk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+DyosEL (Flikr)  https://www.flickr.com/photos/censto/
+lisensed under cc
+
+
+
+
+
+
+
 const cardZoomImg = document.querySelector('#BigCard');
 
 

@@ -1,0 +1,19 @@
+body {
+  background: #776688;
+}
+
+#productDisplay {
+  background:#e6ace6;
+}
+
+.product {
+  background: magenta;
+}
+
+#Payment {
+  background:#e6ace6;
+}
+
+input, button {
+  background: magenta;
+}

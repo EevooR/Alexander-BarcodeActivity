@@ -1,0 +1,25 @@
+body {
+  background: url('../Assets/Lights2007.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#productDisplay {
+  background: #575a5dDD;
+  color: white;
+}
+
+.product {
+  background: #0000EEAA;
+  color: white;
+}
+
+#Payment {
+  background: #575a5dDD;
+  color: white;
+}
+
+input, button {
+  background: #0000EEAA;
+  color: white;
+}

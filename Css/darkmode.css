@@ -1,0 +1,23 @@
+body {
+  background: black;
+}
+
+#productDisplay {
+  background: indigo;
+  color: white;
+}
+
+.product {
+  background: darkgray;
+  color: black;
+}
+
+#Payment {
+  background: indigo;
+  color: white;
+}
+
+input, button {
+  background: darkgray;
+  color: black;
+}

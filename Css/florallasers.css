@@ -1,0 +1,25 @@
+body {
+  background: url('../Assets/FloralTendrles.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#productDisplay {
+  background: #b6d9fcCC;
+  color: black;
+}
+
+.product {
+  background: #0000EEAA;
+  color: white;
+}
+
+#Payment {
+  background: #b6d9fcCC;
+  color: black;
+}
+
+input, button {
+  background: #0000EEAA;
+  color: white;
+}

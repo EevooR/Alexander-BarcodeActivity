@@ -1,0 +1,25 @@
+body {
+  background: url('../Assets/RollingHills.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#productDisplay {
+  background: #3B77BC;
+  color: white;
+}
+
+.product {
+  background: #48aa47;
+  color: white;
+}
+
+#Payment {
+  background: #3B77BC;
+  color: white;
+}
+
+input, button {
+  background: #48aa47;
+  color: white;
+}

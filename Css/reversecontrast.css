@@ -1,0 +1,23 @@
+body {
+  background: lightgray;
+}
+
+#productDisplay {
+  background: #191905;
+  color: white;
+}
+
+.product {
+  background: black;
+  color: white;
+}
+
+#Payment {
+  background: #191905;
+  color: white;
+}
+
+input, button {
+  background: black;
+  color: white;
+}

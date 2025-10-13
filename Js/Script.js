@@ -6,6 +6,8 @@ const corectCost = document.querySelector('#corect_Cost');
 const savings = document.querySelector('#Savings');
 const yousaved = document.querySelector('#yousaved');
 const barcodeEntryArea = document.querySelector('#barcodeEntryArea');
+const teacherTools = document.querySelectorAll('.teacherTools');
+const colormap = document.querySelector('#colormap');
 const studentBarcodes = async () => {
   // const studentBarcodeList = await fetch('Json/barcodes.json');
   const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
@@ -14,21 +16,22 @@ const studentBarcodes = async () => {
 };
 let runningtotal = 0.00;
 let trueTotal = 0.00;
-let errorMax = 3;
+let errorMax = document.querySelector('#errorMax').value;
 let errorCount = 0;
-let errorRateMax = 2;
+let errorRateMax = document.querySelector('#errorRate').value;
 
-let minimumScans = 1;
-let minimumProducts = 1;
-let minimumCupons = 0;
-let maximumScans = 99;
-let maximumPruducts = 10;
-let maximumCupons = 3;
+let minimumScans = document.querySelector('#barcodeMin').value;
+let minimumProducts = document.querySelector('#productMin').value;
+let minimumCupons = document.querySelector('#cuponMin').value;
+let maximumScans = document.querySelector('#barcodeMax').value;
+let maximumPruducts = document.querySelector('#productMax').value;
+let maximumCupons = document.querySelector('#cuponMax').value;
 
 let scancount = 0;
 let productcount = 0;
 let cuponcount = 0;
 
+let teachcheat = 0;
 
 
 function getRandomInt(max) {
@@ -56,8 +59,9 @@ const fallbackPrices = [
   69.49, 72.99, 74.29, 76.39, 78.49, 79.99
 ];
 
+const cuponlist = [
 
-
+];
 
 
 //Window.onload
@@ -67,22 +71,55 @@ window.onload = async (event) => {
   priceTotal.innerHTML = "Running Total: $0.00";
   const data = await studentBarcodes(); // await the async function
   console.log(data);
+  corectCost.value = "";
+  barcodeEntry.value = "";
 };
 
 barcodeEntry.addEventListener('change', async (event) => {
+  if (["80761377"].includes(barcodeEntry.value)) {
+    if (teachcheat == 0) {
+          // Since teacherTools is a NodeList (from querySelectorAll),
+          // we use its .forEach() method to iterate over the elements (t).
+          teacherTools.forEach((t) => {
+              t.style.display = "block"; // Make the element visible
+          });
+          barcodeEntry.value = ""
+          teachcheat = 1;
+        } else {
+          teacherTools.forEach((t) => {
+              t.style.display = "none"; // Make the element visible
+          });
+          barcodeEntry.value = ""
+          teachcheat = 0;
+        }
+    //  } else if (barcodeEntry.value = "") {
+
+    } else if (cuponcount >= 1) {
+      const data = await studentBarcodes();
+      const barcodesdata = data[0];
+      const scanbar = barcodeEntry.value.trim();
+      if (barcodesdata.includes()) {
+      alert('Cupon has been used, Additional products can not be added.')
+      }
+    } else {
+        try {
   if (scancount == maximumScans) {
     console.log(scancount);
     console.log(maximumScans);
     alert('Item Limit Reached, Please proceed to calculate your final price.');
+      barcodeEntry.value = "";
   } else if (productcount == maximumPruducts) {
     alert('Product Limit Reached, Please proceed to calculate your final price.');
+      barcodeEntry.value = "";
   } else if (cuponcount == maximumCupons) {
     alert('Cupon Limit Reached, Please proceed to calculate your final price.');
+      barcodeEntry.value = "";
   }else {
       const data = await studentBarcodes();
       const barcodesdata = data[0];
       const scanbar = barcodeEntry.value.trim();
       console.log(barcodesdata[scanbar]);
+      console.log(barcodesdata[scanbar].Price);
       // runningtotal = runningtotal + barcodesdata[scanbar].Price;
       let errorcalc;
       if (errorCount < errorMax) {
@@ -161,6 +198,21 @@ barcodeEntry.addEventListener('change', async (event) => {
 
         productList.appendChild(newPurchase);
       };
+    } catch (error) {
+      const scanbar = barcodeEntry.value.trim();
+      if (cuponlist.includes(scanbar)) {
+
+
+
+        
+      } else {
+        alert(error);
+        barcodeEntry.value = "";
+      }
+    }
+
+
+    };
 });
 
 
@@ -169,9 +221,6 @@ barcodeEntry.addEventListener('change', async (event) => {
 //   corectCost.value =
 // }
 
-minimumScans
-minimumProducts
-minimumCupons
 
 
 
@@ -192,8 +241,52 @@ function querySubmit() {
 
       yousaved.innerHTML = "You saved $" + roundedSavings + "!";
       barcodeEntryArea.style.display = "none";
+      const audio = new Audio('Assets/PVZwin.mp3');
+     audio.play();
     } else {
       alert('Something Is not right with your calculations or formating! Rememeber just put the price without the "$", use "." instead of ",", and make sure there are no spaces!')
     };
   };
+};
+
+function save() {
+   errorMax = document.querySelector('#errorMax').value;
+   errorRateMax = document.querySelector('#errorRate').value;
+   minimumScans = document.querySelector('#barcodeMin').value;
+   minimumProducts = document.querySelector('#productMin').value;
+   minimumCupons = document.querySelector('#cuponMin').value;
+   maximumScans = document.querySelector('#barcodeMax').value;
+   maximumPruducts = document.querySelector('#productMax').value;
+   maximumCupons = document.querySelector('#cuponMax').value;
+};
+
+
+
+function reset() {
+  productList.innerHTML = "";
+  priceTotal.innerHTML = "Running Total: $0.00";
+  runningtotal = 0.00;
+  trueTotal = 0.00;
+  errorMax = document.querySelector('#errorMax').value;
+  errorCount = 0;
+  errorRateMax = document.querySelector('#errorRate').value;
+
+  minimumScans = document.querySelector('#barcodeMin').value;
+  minimumProducts = document.querySelector('#productMin').value;
+  minimumCupons = document.querySelector('#cuponMin').value;
+  maximumScans = document.querySelector('#barcodeMax').value;
+  maximumPruducts = document.querySelector('#productMax').value;
+  maximumCupons = document.querySelector('#cuponMax').value;
+  savings.style.display = "none"
+  scancount = 0;
+  productcount = 0;
+  cuponcount = 0;
+  corectCost.value = "";
+  barcodeEntry.value = "";
+  barcodeEntryArea.style.display = "block";
+};
+
+
+function theme(themename) {
+  colormap.href = "Css/" + themename + ".css";
 };

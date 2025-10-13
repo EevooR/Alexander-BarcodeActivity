@@ -1,0 +1,19 @@
+body {
+  background: #778866;
+}
+
+#productDisplay {
+  background: lightyellow;
+}
+
+.product {
+  background: yellow;
+}
+
+#Payment {
+  background: lightyellow;
+}
+
+input, button {
+  background: yellow;
+}
