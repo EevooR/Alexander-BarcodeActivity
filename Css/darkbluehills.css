@@ -1,3 +1,7 @@
+* {
+  scrollbar-color: #48aa47 #00000000;
+}
+
 body {
   background: url('../Assets/RollingHills.jpg');
   background-repeat: no-repeat;

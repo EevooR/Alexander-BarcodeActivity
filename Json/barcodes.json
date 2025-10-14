@@ -47,6 +47,22 @@
       "AssetName" : "CheezitWhiteCheddar.png",
       "Price" : 6.99,
       "DiscountPrice" : 3.50
+    },
+    "031000672911" : {
+      "type" : "Product",
+      "Name" : "Bertolli Meatball Rigatoni Oven Bake Ready",
+      "Barcode" : "031000672911",
+      "AssetName" : "MeatballRigatoni.png",
+      "Price" : 12.99,
+      "DiscountPrice" : 8.50
+    },
+    "011110124548" : {
+      "type" : "Product",
+      "Name" : "Kroger Country Style Lemonade (64 fl oz)",
+      "Barcode" : "011110124548",
+      "AssetName" : "CountryLemonaide.png",
+      "Price" : 5.99,
+      "DiscountPrice" : 1.50
     }
   }
 ]

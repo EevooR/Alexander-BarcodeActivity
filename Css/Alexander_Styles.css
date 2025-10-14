@@ -1,5 +1,6 @@
 * {
     transition: 2s ease-in-out;
+    scrollbar-width: thin;
 }
 
 body {

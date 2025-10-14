@@ -1,3 +1,7 @@
+* {
+  scrollbar-color: magenta #00000000;
+}
+
 body {
   background: #776688;
 }
