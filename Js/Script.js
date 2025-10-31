@@ -62,9 +62,19 @@ const fallbackPrices = [
   69.49, 72.99, 74.29, 76.39, 78.49, 79.99
 ];
 
-const cuponlist = [
-
-];
+const fallbackDiscounts = [
+  0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+  0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19,
+  0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29,
+  0.3, 0.31, 0.32, 0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.39,
+  0.4, 0.41, 0.42, 0.43, 0.44, 0.45, 0.46, 0.47, 0.48, 0.49,
+  0.5, 0.51, 0.52, 0.53, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59,
+  0.6, 0.61, 0.62, 0.63, 0.64, 0.65, 0.66, 0.67, 0.68, 0.69,
+  0.7, 0.71, 0.72, 0.73, 0.74, 0.75, 0.76, 0.77, 0.78, 0.79,
+  0.8, 0.81, 0.82, 0.83, 0.84, 0.85, 0.86, 0.87, 0.88, 0.89,
+  0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
+  1
+]
 
 
 //Window.onload
@@ -130,85 +140,154 @@ barcodeEntry.addEventListener('change', async (event) => {
       const barcodesdata = data[0];
       const scanbar = barcodeEntry.value.trim();
       console.log(barcodesdata[scanbar]);
-      console.log(barcodesdata[scanbar].Price);
+      // console.log(barcodesdata[scanbar].Price);
       // runningtotal = runningtotal + barcodesdata[scanbar].Price;
-      let errorcalc;
-      if (errorCount < errorMax) {
-        errorcalc = getRandomInt(errorRateMax);
-      } else {
-        errorcalc = 0
-        console.log('Max errors reached.')
-      }
-      // if (errorcalc == 1) {
-      //   console.log('Error Intended price failure');
-      //   errorCount = errorCount + 1;
-      //   let fallbackcalc = getRandomInt(150);
-      //   runningtotal = Math.round((runningtotal + fallbackPrices[fallbackcalc]) * 100) / 100;
-      //   trueTotal = Math.round((trueTotal + barcodesdata[scanbar].Price) * 100) / 100;
-      //
-      // } else {
-      //   runningtotal = Math.round((runningtotal + barcodesdata[scanbar].Price) * 100) / 100;
-      //   trueTotal = Math.round((trueTotal + barcodesdata[scanbar].Price) * 100) / 100;
-      // }
-        if (errorcalc == 1) {
-          console.log('Error Intended price failure');
-          errorCount = errorCount + 1;
-          let fallbackcalc = getRandomInt(150);
 
-          // Calculate and round the price to be added from fallbackPrices
-          let fallbackPrice = fallbackPrices[fallbackcalc];
-          console.log(fallbackPrice);
-          // Update runningtotal and round *after* addition
-          runningtotal = runningtotal + fallbackPrice;
-          runningtotal = Math.round(runningtotal * 100) / 100;
-
-          // Calculate and round the price to be added from true price
-          let truePrice = barcodesdata[scanbar].Price;
-
-          // Update trueTotal and round *after* addition
-          trueTotal = trueTotal + truePrice;
-          trueTotal = Math.round(trueTotal * 100) / 100;
-
+      if (barcodesdata[scanbar].type == "Product") {
+        let errorcalc;
+        if (errorCount < errorMax) {
+          errorcalc = getRandomInt(errorRateMax);
         } else {
-          // Calculate the price to be added
-          let priceToAdd = barcodesdata[scanbar].Price;
-
-          // Update runningtotal and round *after* addition
-          runningtotal = runningtotal + priceToAdd;
-          runningtotal = Math.round(runningtotal * 100) / 100;
-
-          // Update trueTotal and round *after* addition
-          trueTotal = trueTotal + priceToAdd;
-          trueTotal = Math.round(trueTotal * 100) / 100;
+          errorcalc = 0
+          console.log('Max errors reached.')
         }
-        scancount = scancount + 1;
-        productcount = productcount + 1;
-        console.log(productcount);
-        priceTotal.innerHTML = "Running Total: $" + runningtotal;
-        barcodeEntry.value = "";
+          if (errorcalc == 1) {
+            console.log('Error Intended price failure');
+            errorCount = errorCount + 1;
+            let fallbackcalc = getRandomInt(150);
 
-        const newPurchase = document.createElement('div');
-        newPurchase.classList.add('product');
+            // Calculate and round the price to be added from fallbackPrices
+            let fallbackPrice = fallbackPrices[fallbackcalc];
+            console.log(fallbackPrice);
+            // Update runningtotal and round *after* addition
+            runningtotal = runningtotal + fallbackPrice;
+            runningtotal = Math.round(runningtotal * 100) / 100;
 
-        const nPimage = document.createElement('img');
-        const nPname = document.createElement('p');
-        const nPcost = document.createElement('p');
+            // Calculate and round the price to be added from true price
+            let truePrice = barcodesdata[scanbar].Price;
 
-        nPimage.classList.add('productImg');
-        nPimage.alt = barcodesdata[scanbar].Name;
-        nPimage.src = "Assets/" +  barcodesdata[scanbar].AssetName;
-        newPurchase.appendChild(nPimage)
+            // Update trueTotal and round *after* addition
+            trueTotal = trueTotal + truePrice;
+            trueTotal = Math.round(trueTotal * 100) / 100;
 
-        nPname.classList.add('productName');
-        nPname.innerHTML = barcodesdata[scanbar].Name;
-        newPurchase.appendChild(nPname);
+          } else {
+            // Calculate the price to be added
+            let priceToAdd = barcodesdata[scanbar].Price;
 
-        nPcost.classList.add('productCost');
-        nPcost.innerHTML = "$" + barcodesdata[scanbar].Price;
-        newPurchase.appendChild(nPcost);
+            // Update runningtotal and round *after* addition
+            runningtotal = runningtotal + priceToAdd;
+            runningtotal = Math.round(runningtotal * 100) / 100;
 
-        productList.appendChild(newPurchase);
+            // Update trueTotal and round *after* addition
+            trueTotal = trueTotal + priceToAdd;
+            trueTotal = Math.round(trueTotal * 100) / 100;
+          }
+          scancount = scancount + 1;
+          productcount = productcount + 1;
+          console.log(productcount);
+          priceTotal.innerHTML = "Running Total: $" + runningtotal;
+          barcodeEntry.value = "";
+
+          const newPurchase = document.createElement('div');
+          newPurchase.classList.add('product');
+
+          const nPimage = document.createElement('img');
+          const nPname = document.createElement('p');
+          const nPcost = document.createElement('p');
+
+          nPimage.classList.add('productImg');
+          nPimage.alt = barcodesdata[scanbar].Name;
+          nPimage.src = "Assets/" +  barcodesdata[scanbar].AssetName;
+          newPurchase.appendChild(nPimage)
+
+          nPname.classList.add('productName');
+          nPname.innerHTML = barcodesdata[scanbar].Name;
+          newPurchase.appendChild(nPname);
+
+          nPcost.classList.add('productCost');
+          nPcost.innerHTML = "$" + barcodesdata[scanbar].Price;
+          newPurchase.appendChild(nPcost);
+
+          productList.appendChild(newPurchase);
+      }
+      else if (barcodesdata[scanbar].type == "Cupon") {
+        let errorcalc;
+        if (errorCount < errorMax) {
+          errorcalc = getRandomInt(errorRateMax);
+        } else {
+          errorcalc = 0
+          console.log('Max errors reached.')
+        }
+          if (errorcalc == 1) {
+            console.log('Error Intended price failure');
+            errorCount = errorCount + 1;
+            let fallbackcalc = getRandomInt(100);
+
+            // Calculate and round the price to be added from fallbackPrices
+            let fallbackdiscount = fallbackDiscounts[fallbackcalc];
+            console.log(fallbackdiscount);
+            // Update runningtotal and round *after* addition
+            discountOff = runningtotal * fallbackdiscount
+            runningtotal = runningtotal - fallbackdiscount;
+            runningtotal = Math.round(runningtotal * 100) / 100;
+
+            // Calculate and round the price to be added from true price
+            let trueDiscount = barcodesdata[scanbar].Discount;
+
+            // Update trueTotal and round *after* addition
+            trueDiscountSum = trueTotal * trueDiscount
+            trueTotal = trueTotal - trueDiscountSum;
+            trueTotal = Math.round(trueTotal * 100) / 100;
+
+          } else {
+            // Calculate the price to be added
+            let discoff = barcodesdata[scanbar].Discount;
+
+            // Update runningtotal and round *after* addition
+            rtDiscount = runningtotal * discoff;
+            runningtotal = runningtotal - rtDiscount;
+            runningtotal = Math.round(runningtotal * 100) / 100;
+
+            // Update trueTotal and round *after* addition
+            ttDiscount = trueTotal * discoff;
+            trueTotal = trueTotal - ttDiscount;
+            trueTotal = Math.round(trueTotal * 100) / 100;
+          }
+          scancount = scancount + 1;
+          cuponcount = cuponcount + 1;
+          console.log(cuponcount);
+          priceTotal.innerHTML = "Running Total: $" + runningtotal;
+          barcodeEntry.value = "";
+
+          const newPurchase = document.createElement('div');
+          newPurchase.classList.add('product');
+
+          const nPimage = document.createElement('img');
+          const nPname = document.createElement('p');
+          const nPcost = document.createElement('p');
+
+          nPimage.classList.add('productImg');
+          nPimage.alt = barcodesdata[scanbar].Name;
+          nPimage.src = "Assets/" +  barcodesdata[scanbar].AssetName;
+          newPurchase.appendChild(nPimage)
+
+          nPname.classList.add('productName');
+          nPname.innerHTML = barcodesdata[scanbar].Name;
+          newPurchase.appendChild(nPname);
+
+          nPcost.classList.add('productCost');
+          nPcost.innerHTML = "$" + barcodesdata[scanbar].Discount;
+          newPurchase.appendChild(nPcost);
+
+          productList.appendChild(newPurchase);
+      } else {
+        console.log(barcodesdata[scanbar].type)
       };
+
+
+
+
+};
     } catch (error) {
       const scanbar = barcodeEntry.value.trim();
       if (cuponlist.includes(scanbar)) {

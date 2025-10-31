@@ -5,72 +5,105 @@
       "Name" : "Ruffles® Potato Chips Variety Pack - 18 ct / 1 oz",
       "Barcode": "028400777322",
       "AssetName": "RufflesVar.png",
-      "Price" : 12.99,
-      "DiscountPrice": 7.99
+      "Price" : 12.99
     },
     "044000078362" : {
       "type" : "Product",
       "Name" : "Nutter Butter, Oreo, Chips Ahoy! Nabisco Sweet Variety Pack - 16.36oz/10ct",
       "Barcode" : "044000078362",
       "AssetName" : "NabiscoCookieVar.png",
-      "Price" : 5.99,
-      "DiscountPrice" : 3.76
+      "Price" : 5.99
     },
     "038000138430" : {
       "type" : "Product",
       "Name" : "Pringles Sour Cream & Onion Potato Crisps Chips - 5.5oz",
       "Barcode" : "038000138430",
       "AssetName" : "PringlesSCaO.png",
-      "Price" : 7.99,
-      "DiscountPrice" : 4.50
+      "Price" : 7.99
     },
     "786162150004" : {
       "type" : "Product",
       "Name" : "vitaminwater xxx açai- blueberry-pomegranate - 20 fl oz Bottle",
       "Barcode" : "786162150004",
       "AssetName" : "VitaminwaterXxx.png",
-      "Price" : 2.99,
-      "DiscountPrice" : 0.99
+      "Price" : 2.99
     },
     "038000307942" : {
       "type" : "Product",
       "Name" : "Pringles Ghost Pepper Ranch Potato Crisps Chips - 5.5oz",
       "Barcode" : "038000307942",
       "AssetName" : "PringlesGPR.png",
-      "Price" : 7.99,
-      "DiscountPrice" : 4.50
+      "Price" : 7.99
     },
     "038000138577" : {
       "type" : "Product",
       "Name" : "Pringles Cheddar Cheese Potato Crisps Chips - 5.5oz",
       "Barcode" : "038000138577",
       "AssetName" : "PringlesCC.png",
-      "Price" : 7.99,
-      "DiscountPrice" : 4.50
+      "Price" : 7.99
     },
     "024100789382" : {
       "type" : "Product",
       "Name" : "Cheez-It White Cheddar Baked Snack Crackers - 12.4oz",
       "Barcode" : "024100789382",
       "AssetName" : "CheezitWhiteCheddar.png",
-      "Price" : 6.99,
-      "DiscountPrice" : 3.50
+      "Price" : 6.99
     },
     "031000672911" : {
       "type" : "Product",
       "Name" : "Bertolli Meatball Rigatoni Oven Bake Ready",
       "Barcode" : "031000672911",
       "AssetName" : "MeatballRigatoni.png",
-      "Price" : 12.99,
-      "DiscountPrice" : 8.50
+      "Price" : 12.99
     },
     "011110124548" : {
       "type" : "Product",
       "Name" : "Kroger Country Style Lemonade (64 fl oz)",
       "Barcode" : "011110124548",
       "AssetName" : "CountryLemonaide.png",
-      "Price" : 5.99,
-      "DiscountPrice" : 1.50
+      "Price" : 5.99
+    },
+    "725272730706" : {
+      "type" : "Cupon",
+      "Name" : "30% off Cuppon",
+      "Barcode" : "725272730706",
+      "AssetName" : "doritos.png",
+      "Discount" : .3
+    },
+    "426073751326" : {
+      "type" : "Cupon",
+      "Name" : "15% off Cuppon",
+      "Barcode" : "426073751326",
+      "AssetName" : "doritos.png",
+      "Discount" : .15
+    },
+    "101477642981" : {
+      "type" : "Cupon",
+      "Name" : "80% off Cuppon",
+      "Barcode" : "101477642981",
+      "AssetName" : "doritos.png",
+      "Discount" : .8
+    },
+    "116227916144" : {
+      "type" : "Cupon",
+      "Name" : "10% off Cuppon",
+      "Barcode" : "116227916144",
+      "AssetName" : "doritos.png",
+      "Discount" : .1
+    },
+    "972471456726" : {
+      "type" : "Cupon",
+      "Name" : "65% off Cuppon",
+      "Barcode" : "972471456726",
+      "AssetName" : "doritos.png",
+      "Discount" : .65
+    },
+    "859616359091" : {
+      "type" : "Cupon",
+      "Name" : "45% off Cuppon",
+      "Barcode" : "859616359091",
+      "AssetName" : "doritos.png",
+      "Discount" : .45
     }
   }
 ]
