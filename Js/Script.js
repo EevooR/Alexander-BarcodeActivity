@@ -8,6 +8,8 @@ const yousaved = document.querySelector('#yousaved');
 const barcodeEntryArea = document.querySelector('#barcodeEntryArea');
 const teacherTools = document.querySelectorAll('.teacherTools');
 const colormap = document.querySelector('#colormap');
+const productDisplay = document.querySelector('#productDisplay');
+const payment = document.querySelector('#Payment');
 const studentBarcodes = async () => {
   // const studentBarcodeList = await fetch('Json/barcodes.json');
   const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
@@ -33,6 +35,7 @@ let cuponcount = 0;
 
 let teachcheat = 0;
 
+let yay = 0;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -81,13 +84,21 @@ barcodeEntry.addEventListener('change', async (event) => {
           // Since teacherTools is a NodeList (from querySelectorAll),
           // we use its .forEach() method to iterate over the elements (t).
           teacherTools.forEach((t) => {
-              t.style.display = "block"; // Make the element visible
+              t.style.width = "auto"; // Make the element visible
+              t.style.height = "auto";
           });
-          barcodeEntry.value = ""
+          payment.style.width = "80vw";
+          payment.style.overflowY = "scroll";
+          productDisplay.style.width = "18vw;"
+          barcodeEntry.value = "";
           teachcheat = 1;
         } else {
           teacherTools.forEach((t) => {
-              t.style.display = "none"; // Make the element visible
+              t.style.width = "0px"; // Make the element visible
+              t.style.height = "0px";
+              payment.style.width = "18vw";
+              productDisplay.style.width = "80vw;"
+              payment.style.overflowY = "visible";
           });
           barcodeEntry.value = ""
           teachcheat = 0;
@@ -204,7 +215,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
 
 
-        
+
       } else {
         alert(error);
         barcodeEntry.value = "";
@@ -233,16 +244,21 @@ function querySubmit() {
     alert('Would you like to apply a cupon?')
   } else {
     if (corectCost.value == trueTotal) {
-      savings.style.display = "block";
+      savings.style.width = "auto";
+      savings.style.height = "auto";
+      savings.style.overflow = "visible";
       let savingscalc = runningtotal - trueTotal;
 
       // Multiply by 100, round, and then divide by 100 to round to two decimal places
       let roundedSavings = Math.round(savingscalc * 100) / 100;
 
       yousaved.innerHTML = "You saved $" + roundedSavings + "!";
-      barcodeEntryArea.style.display = "none";
-      const audio = new Audio('Assets/PVZwin.mp3');
-     audio.play();
+      barcodeEntryArea.style.width = "0px";
+      if (yay == 0) {
+        const audio = new Audio('Assets/PVZwin.mp3');
+        audio.play();
+        yay = 1;
+      };
     } else {
       alert('Something Is not right with your calculations or formating! Rememeber just put the price without the "$", use "." instead of ",", and make sure there are no spaces!')
     };
@@ -277,13 +293,16 @@ function reset() {
   maximumScans = document.querySelector('#barcodeMax').value;
   maximumPruducts = document.querySelector('#productMax').value;
   maximumCupons = document.querySelector('#cuponMax').value;
-  savings.style.display = "none"
+  savings.style.width = "0px"
+  savings.style.height = "0px"
+  savings.style.overflow = "hidden"
   scancount = 0;
   productcount = 0;
   cuponcount = 0;
   corectCost.value = "";
   barcodeEntry.value = "";
-  barcodeEntryArea.style.display = "block";
+  barcodeEntryArea.style.width = "95%";
+  yay = 0;
 };
 
 

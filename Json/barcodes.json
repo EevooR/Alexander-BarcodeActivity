@@ -40,6 +40,14 @@
       "Price" : 7.99,
       "DiscountPrice" : 4.50
     },
+    "038000138577" : {
+      "type" : "Product",
+      "Name" : "Pringles Cheddar Cheese Potato Crisps Chips - 5.5oz",
+      "Barcode" : "038000138577",
+      "AssetName" : "PringlesCC.png",
+      "Price" : 7.99,
+      "DiscountPrice" : 4.50
+    },
     "024100789382" : {
       "type" : "Product",
       "Name" : "Cheez-It White Cheddar Baked Snack Crackers - 12.4oz",

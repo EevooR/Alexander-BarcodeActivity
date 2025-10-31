@@ -1,6 +1,7 @@
 * {
     transition: 2s ease-in-out;
     scrollbar-width: thin;
+    transition: 2s ease-in-out;
 }
 
 body {
@@ -20,7 +21,10 @@ body * {
   height: 90vh;
 }
 
-
+#Payment {
+  width: 18vw;
+  height: 90vh;
+}
 
 #productList {
   height: 80%;
@@ -34,10 +38,12 @@ body * {
   height: 10%;
   display: flex;
   /* background: blue; */
+  overflow: hidden;
 }
 
 #barcodeEntry {
   width: 85%;
+  overflow: hidden;
 }
 
 
@@ -55,9 +61,13 @@ body * {
 }
 
 .teacherTools{
-  display: none;
+  width: 0px;
+  overflow: hidden;
+  height: 0px;
 }
 
 #Savings {
-  display: none;
+  width: 0px;
+  overflow: hidden;
+  height: 0px;
 }
