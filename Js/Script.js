@@ -276,7 +276,7 @@ barcodeEntry.addEventListener('change', async (event) => {
           newPurchase.appendChild(nPname);
 
           nPcost.classList.add('productCost');
-          nPcost.innerHTML = "$" + barcodesdata[scanbar].Discount;
+          nPcost.innerHTML = "- $" + rtDiscount;
           newPurchase.appendChild(nPcost);
 
           productList.appendChild(newPurchase);
