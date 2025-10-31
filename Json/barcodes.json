@@ -68,42 +68,42 @@
       "Name" : "30% off Cuppon",
       "Barcode" : "725272730706",
       "AssetName" : "doritos.png",
-      "Discount" : .3
+      "Discount" : 0.3
     },
     "426073751326" : {
       "type" : "Cupon",
       "Name" : "15% off Cuppon",
       "Barcode" : "426073751326",
       "AssetName" : "doritos.png",
-      "Discount" : .15
+      "Discount" : 0.15
     },
     "101477642981" : {
       "type" : "Cupon",
       "Name" : "80% off Cuppon",
       "Barcode" : "101477642981",
       "AssetName" : "doritos.png",
-      "Discount" : .8
+      "Discount" : 0.8
     },
     "116227916144" : {
       "type" : "Cupon",
       "Name" : "10% off Cuppon",
       "Barcode" : "116227916144",
       "AssetName" : "doritos.png",
-      "Discount" : .1
+      "Discount" : 0.1
     },
     "972471456726" : {
       "type" : "Cupon",
       "Name" : "65% off Cuppon",
       "Barcode" : "972471456726",
       "AssetName" : "doritos.png",
-      "Discount" : .65
+      "Discount" : 0.65
     },
     "859616359091" : {
       "type" : "Cupon",
       "Name" : "45% off Cuppon",
       "Barcode" : "859616359091",
       "AssetName" : "doritos.png",
-      "Discount" : .45
+      "Discount" : 0.45
     }
   }
 ]
