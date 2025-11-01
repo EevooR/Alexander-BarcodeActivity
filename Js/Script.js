@@ -122,22 +122,25 @@ barcodeEntry.addEventListener('change', async (event) => {
       if (barcodesdata.includes()) {
       alert('Cupon has been used, Additional products can not be added.')
       }
-    } else {
+    }
+      else {
         try {
-  if (scancount == maximumScans) {
+  if (scancount >= maximumScans) {
     console.log(scancount);
     console.log(maximumScans);
     alert('Item Limit Reached, Please proceed to calculate your final price.');
       barcodeEntry.value = "";
-  } else if (productcount == maximumPruducts) {
+  } else if (productcount >= maximumPruducts) {
     alert('Product Limit Reached, Please proceed to calculate your final price.');
       barcodeEntry.value = "";
-  } else if (cuponcount == maximumCupons) {
+  } else if (cuponcount >= maximumCupons) {
     alert('Cupon Limit Reached, Please proceed to calculate your final price.');
       barcodeEntry.value = "";
   }else {
       const data = await studentBarcodes();
+      console.log(data);
       const barcodesdata = data[0];
+      console.log(barcodesdata);
       const scanbar = barcodeEntry.value.trim();
       console.log(barcodesdata[scanbar]);
       // console.log(barcodesdata[scanbar].Price);
@@ -289,16 +292,9 @@ barcodeEntry.addEventListener('change', async (event) => {
 
 };
     } catch (error) {
+      console.log(error)
       const scanbar = barcodeEntry.value.trim();
-      if (cuponlist.includes(scanbar)) {
-
-
-
-
-      } else {
-        alert(error);
         barcodeEntry.value = "";
-      }
     }
 
 
