@@ -234,6 +234,7 @@ barcodeEntry.addEventListener('change', async (event) => {
               console.log(fallbackdiscount);
               // Update runningtotal and round *after* addition
               discountOff = runningtotal * fallbackdiscount
+              rtDiscount = discountOff
               runningtotal = runningtotal - fallbackdiscount;
               runningtotal = Math.round(runningtotal * 100) / 100;
 
@@ -251,6 +252,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
               // Update runningtotal and round *after* addition
               rtDiscount = runningtotal * discoff;
+              console.log(rtDiscount)
               runningtotal = runningtotal - rtDiscount;
               runningtotal = Math.round(runningtotal * 100) / 100;
 
