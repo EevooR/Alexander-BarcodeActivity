@@ -10,12 +10,122 @@ const teacherTools = document.querySelectorAll('.teacherTools');
 const colormap = document.querySelector('#colormap');
 const productDisplay = document.querySelector('#productDisplay');
 const payment = document.querySelector('#Payment');
-const studentBarcodes = async () => {
-  // const studentBarcodeList = await fetch('Json/barcodes.json');
-  const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
-  const studentBarcodedata = await studentBarcodeList.json();
-  return studentBarcodedata;
-};
+// const studentBarcodes = async () => {
+//    const studentBarcodeList = await fetch('Json/barcodes.json');
+//   const studentBarcodeList = await fetch('https://eevoor.github.io/Alexander-BarcodeActivity/Json/barcodes.json');
+//   const studentBarcodedata = await studentBarcodeList.json();
+//   return studentBarcodedata;
+// };
+const data = [
+  {
+    "028400777322" : {
+      "type" : "Product",
+      "Name" : "Ruffles® Potato Chips Variety Pack - 18 ct / 1 oz",
+      "Barcode": "028400777322",
+      "AssetName": "RufflesVar.png",
+      "Price" : 12.99
+    },
+    "044000078362" : {
+      "type" : "Product",
+      "Name" : "Nutter Butter, Oreo, Chips Ahoy! Nabisco Sweet Variety Pack - 16.36oz/10ct",
+      "Barcode" : "044000078362",
+      "AssetName" : "NabiscoCookieVar.png",
+      "Price" : 5.99
+    },
+    "038000138430" : {
+      "type" : "Product",
+      "Name" : "Pringles Sour Cream & Onion Potato Crisps Chips - 5.5oz",
+      "Barcode" : "038000138430",
+      "AssetName" : "PringlesSCaO.png",
+      "Price" : 7.99
+    },
+    "786162150004" : {
+      "type" : "Product",
+      "Name" : "vitaminwater xxx açai- blueberry-pomegranate - 20 fl oz Bottle",
+      "Barcode" : "786162150004",
+      "AssetName" : "VitaminwaterXxx.png",
+      "Price" : 2.99
+    },
+    "038000307942" : {
+      "type" : "Product",
+      "Name" : "Pringles Ghost Pepper Ranch Potato Crisps Chips - 5.5oz",
+      "Barcode" : "038000307942",
+      "AssetName" : "PringlesGPR.png",
+      "Price" : 7.99
+    },
+    "038000138577" : {
+      "type" : "Product",
+      "Name" : "Pringles Cheddar Cheese Potato Crisps Chips - 5.5oz",
+      "Barcode" : "038000138577",
+      "AssetName" : "PringlesCC.png",
+      "Price" : 7.99
+    },
+    "024100789382" : {
+      "type" : "Product",
+      "Name" : "Cheez-It White Cheddar Baked Snack Crackers - 12.4oz",
+      "Barcode" : "024100789382",
+      "AssetName" : "CheezitWhiteCheddar.png",
+      "Price" : 6.99
+    },
+    "031000672911" : {
+      "type" : "Product",
+      "Name" : "Bertolli Meatball Rigatoni Oven Bake Ready",
+      "Barcode" : "031000672911",
+      "AssetName" : "MeatballRigatoni.png",
+      "Price" : 12.99
+    },
+    "011110124548" : {
+      "type" : "Product",
+      "Name" : "Kroger Country Style Lemonade (64 fl oz)",
+      "Barcode" : "011110124548",
+      "AssetName" : "CountryLemonaide.png",
+      "Price" : 5.99
+    },
+    "725272730706" : {
+      "type" : "Cupon",
+      "Name" : "30% off Cuppon",
+      "Barcode" : "725272730706",
+      "AssetName" : "30off.png",
+      "Discount" : 0.3
+    },
+    "426073751326" : {
+      "type" : "Cupon",
+      "Name" : "15% off Cuppon",
+      "Barcode" : "426073751326",
+      "AssetName" : "15off.png",
+      "Discount" : 0.15
+    },
+    "101477642981" : {
+      "type" : "Cupon",
+      "Name" : "80% off Cuppon",
+      "Barcode" : "101477642981",
+      "AssetName" : "80off.png",
+      "Discount" : 0.8
+    },
+    "116227916144" : {
+      "type" : "Cupon",
+      "Name" : "10% off Cuppon",
+      "Barcode" : "116227916144",
+      "AssetName" : "10off.png",
+      "Discount" : 0.1
+    },
+    "972471456726" : {
+      "type" : "Cupon",
+      "Name" : "65% off Cuppon",
+      "Barcode" : "972471456726",
+      "AssetName" : "65off.png",
+      "Discount" : 0.65
+    },
+    "859616359091" : {
+      "type" : "Cupon",
+      "Name" : "45% off Cuppon",
+      "Barcode" : "859616359091",
+      "AssetName" : "45off.png",
+      "Discount" : 0.45
+    }
+  }
+]
+
 let runningtotal = 0.00;
 let trueTotal = 0.00;
 let errorMax = document.querySelector('#errorMax').value;
@@ -85,7 +195,7 @@ let exhastedBarcodes = [
 window.onload = async (event) => {
   productList.innerHTML = "";
   priceTotal.innerHTML = "Running Total: $0.00";
-  const data = await studentBarcodes(); // await the async function
+  // const data = await studentBarcodes(); // await the async function
   console.log(data);
   corectCost.value = "";
   barcodeEntry.value = "";
@@ -129,7 +239,7 @@ barcodeEntry.addEventListener('change', async (event) => {
     alert('Cupon Limit Reached, Please proceed to calculate your final price.');
       barcodeEntry.value = "";
   }else {
-      const data = await studentBarcodes();
+      // const data = await studentBarcodes();
       console.log(data);
       const barcodesdata = data[0];
       console.log(barcodesdata);
