@@ -81,6 +81,34 @@ const data = [
       "AssetName" : "CountryLemonaide.png",
       "Price" : 5.99
     },
+    "011110042828" : {
+      "type" : "Product",
+      "Name" : "Kroger Kroger Butter Cookies",
+      "Barcode" : "011110042828",
+      "AssetName" : "ButterCookies.png",
+      "Price" : 8.99
+    },
+    "877448008666" : {
+      "type" : "Product",
+      "Name" : "Rana Lasagna, 5 Cheese, Family Size",
+      "Barcode" : "877448008666",
+      "AssetName" : "RanaLasagna.png",
+      "Price" : 15.99
+    },
+    "011110096791" : {
+      "type" : "Product",
+      "Name" : "Kroger Sausage Egg & Cheese Croissant",
+      "Barcode" : "011110096791",
+      "AssetName" : "KrogerEggCheeseCroi.png",
+      "Price" : 12.99
+    },
+    "011110092106" : {
+      "type" : "Product",
+      "Name" : "Kroger® Celebration Mini Muffins (20 Pouches)",
+      "Barcode" : "011110092106",
+      "AssetName" : "CeleMiniMuff.png",
+      "Price" : 10.99
+    },
     "725272730706" : {
       "type" : "Cupon",
       "Name" : "30% off Cuppon",
@@ -125,6 +153,7 @@ const data = [
     }
   }
 ]
+
 
 let runningtotal = 0.00;
 let trueTotal = 0.00;
