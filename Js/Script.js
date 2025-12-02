@@ -109,6 +109,13 @@ const data = [
       "AssetName" : "CeleMiniMuff.png",
       "Price" : 10.99
     },
+    "024100440870" : {
+      "type" : "Product",
+      "Name" : "Cheez-It White Cheddar Baked Snack Crackers - 21oz",
+      "Barcode" : "024100440870",
+      "AssetName" : "CheezitsWhiteCheddFam.png",
+      "Price" : 7.99
+    },
     "725272730706" : {
       "type" : "Cupon",
       "Name" : "30% off Cuppon",
