@@ -549,6 +549,7 @@ function reset() {
   barcodeEntry.value = "";
   barcodeEntryArea.style.width = "95%";
   yay = 0;
+  exhastedBarcodes = []
 };
 
 
