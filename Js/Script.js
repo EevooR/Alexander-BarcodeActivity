@@ -116,6 +116,20 @@ const data = [
       "AssetName" : "CheezitsWhiteCheddFam.png",
       "Price" : 7.99
     },
+    "011110151483" : {
+      "type" : "Product",
+      "Name" : "Kroger® Blueberry Mini Muffins (20 Pouches)",
+      "Barcode" : "011110151483",
+      "AssetName" : "BluMiniMuff.png",
+      "Price" : 10.99
+    },
+    "049000018011" : {
+      "type" : "Product",
+      "Name" : "Coca-Cola Cherry - 20 fl oz Bottle",
+      "Barcode" : "049000018011",
+      "AssetName" : "CherryCoke.png",
+      "Price" : 2.50
+    },
     "725272730706" : {
       "type" : "Cupon",
       "Name" : "30% off Cuppon",
