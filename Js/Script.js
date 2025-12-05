@@ -240,13 +240,10 @@ let exhastedBarcodes = [
 
 ]
 
-//Window.onload
-
 window.onload = async (event) => {
   productList.innerHTML = "";
   priceTotal.innerHTML = "Running Total: $0.00";
-  // const data = await studentBarcodes(); // await the async function
-  console.log(data);
+  // console.log(data);
   corectCost.value = "";
   barcodeEntry.value = "";
 };
@@ -281,8 +278,8 @@ barcodeEntry.addEventListener('change', async (event) => {
     } else {
         try {
   if (scancount >= maximumScans) {
-    console.log(scancount);
-    console.log(maximumScans);
+    // console.log(scancount);
+    // console.log(maximumScans);
     alert('Item Limit Reached, Please proceed to calculate your final price.');
       barcodeEntry.value = "";
   }  else if (cuponcount >= maximumCupons) {
@@ -290,11 +287,11 @@ barcodeEntry.addEventListener('change', async (event) => {
       barcodeEntry.value = "";
   }else {
       // const data = await studentBarcodes();
-      console.log(data);
+      // console.log(data);
       const barcodesdata = data[0];
-      console.log(barcodesdata);
+      // console.log(barcodesdata);
       const scanbar = barcodeEntry.value.trim();
-      console.log(barcodesdata[scanbar]);
+      // console.log(barcodesdata[scanbar]);
       // console.log(barcodesdata[scanbar].Price);
       // runningtotal = runningtotal + barcodesdata[scanbar].Price;
 
@@ -308,7 +305,7 @@ barcodeEntry.addEventListener('change', async (event) => {
               errorcalc = getRandomInt(errorRateMax);
             } else {
               errorcalc = 0
-              console.log('Max errors reached.')
+              // console.log('Max errors reached.')
             }
               if (errorcalc == 1) {
                 console.log('Error Intended price failure');
@@ -317,7 +314,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
                 // Calculate and round the price to be added from fallbackPrices
                 let fallbackPrice = fallbackPrices[fallbackcalc];
-                console.log(fallbackPrice);
+                // console.log(fallbackPrice);
                 // Update runningtotal and round *after* addition
                 runningtotal = runningtotal + fallbackPrice;
                 runningtotal = Math.round(runningtotal * 100) / 100;
@@ -343,7 +340,7 @@ barcodeEntry.addEventListener('change', async (event) => {
               }
               scancount = scancount + 1;
               productcount = productcount + 1;
-              console.log(productcount);
+              // console.log(productcount);
               priceTotal.innerHTML = "Running Total: $" + runningtotal;
               barcodeEntry.value = "";
 
@@ -382,7 +379,7 @@ barcodeEntry.addEventListener('change', async (event) => {
             errorcalc = getRandomInt(errorRateMax);
           } else {
             errorcalc = 0
-            console.log('Max errors reached.')
+            // console.log('Max errors reached.')
           }
             if (errorcalc == 1) {
               console.log('Error Intended price failure');
@@ -391,7 +388,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
               // Calculate and round the price to be added from fallbackPrices
               let fallbackdiscount = fallbackDiscounts[fallbackcalc];
-              console.log(fallbackdiscount);
+              // console.log(fallbackdiscount);
               // Update runningtotal and round *after* addition
               discountOff = runningtotal * fallbackdiscount
               rtDiscount = discountOff
@@ -412,7 +409,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
               // Update runningtotal and round *after* addition
               rtDiscount = runningtotal * discoff;
-              console.log(rtDiscount)
+              // console.log(rtDiscount)
               runningtotal = runningtotal - rtDiscount;
               runningtotal = Math.round(runningtotal * 100) / 100;
 
@@ -423,7 +420,7 @@ barcodeEntry.addEventListener('change', async (event) => {
             }
             scancount = scancount + 1;
             cuponcount = cuponcount + 1;
-            console.log(cuponcount);
+            // console.log(cuponcount);
             priceTotal.innerHTML = "Running Total: $" + runningtotal;
             barcodeEntry.value = "";
 
@@ -455,7 +452,7 @@ barcodeEntry.addEventListener('change', async (event) => {
           barcodeEntry.value = ""
         }
       } else {
-        console.log(barcodesdata[scanbar].type)
+        // console.log(barcodesdata[scanbar].type)
       };
 
 
@@ -463,7 +460,7 @@ barcodeEntry.addEventListener('change', async (event) => {
 
 };
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       const scanbar = barcodeEntry.value.trim();
         barcodeEntry.value = "";
     }
@@ -471,13 +468,6 @@ barcodeEntry.addEventListener('change', async (event) => {
 
     };
 });
-
-
-//
-// corectCost.addEventListener('change', async (event) => {
-//   corectCost.value =
-// }
-
 
 
 
