@@ -71,3 +71,12 @@ body * {
   overflow: hidden;
   height: 0px;
 }
+
+#corect_Cost {
+  font-size: 1.5em;
+  width:75%;
+}
+
+#priceTotal {
+  font-size: 1.5em;
+}

@@ -496,7 +496,17 @@ function querySubmit() {
         yay = 1;
       };
     } else {
-      alert('Something Is not right with your calculations or formating! Rememeber just put the price without the "$", use "." instead of ",", and make sure there are no spaces!')
+      try {
+        isitafloat = parseFloat(corectCost.value)
+        console.log(isitafloat);
+        if (isNaN(isitafloat)) {
+          alert('Please check your formating! Rememeber just put the price without the "$", use "." instead of ",", and make sure there are no spaces! Example: "2.99" instead of "$2.99"')
+        } else {
+          alert('Your calculations may be off, please try again.')
+        }
+      } catch (error) {
+        console.log(error)
+      }
     };
   };
 };
